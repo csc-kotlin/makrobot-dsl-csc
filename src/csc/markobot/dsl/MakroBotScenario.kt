@@ -26,8 +26,21 @@ class MakroBotScenario {
         this@MakroBotScenario.actions.add { turnAround() }
     }
 
-    infix fun MakroBot.воспроизвести(source: String) {  // unaryPlus here ?
-        this@MakroBotScenario.actions.add { playMusic(source) }
+    class PronounceBlock {
+        private val strings = arrayListOf<String>()
+
+        operator fun String.unaryPlus() {                               // operator overload
+            strings.add(this)
+        }
+
+        val text: String get() = strings.joinToString(separator = "\n")
+    }
+
+    fun MakroBot.воспроизвести(text: PronounceBlock.()->Unit) {
+
+        val pronounceBlock = PronounceBlock().apply(text)
+
+        this@MakroBotScenario.actions.add { pronounce(pronounceBlock.text) }
     }
 
     operator fun MakroBot.invoke(settings: MakroBot.() -> Unit) = this.settings()
@@ -37,7 +50,7 @@ class MakroBotScenario {
         actions.forEach { it() }
 
         schedule?.let {
-            println(it.toString())
+            println(it)
         }
         return this
     }
@@ -46,3 +59,7 @@ class MakroBotScenario {
 fun сценарий(operations: MakroBotScenario.()->Unit): MakroBotScenario {
     return MakroBotScenario().apply(operations)
 }
+
+operator fun MakroBot.component1(): String = name
+operator fun MakroBot.component2(): Int = speed
+operator fun MakroBot.component3(): Int = power

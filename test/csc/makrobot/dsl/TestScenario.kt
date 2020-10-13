@@ -4,12 +4,7 @@ package csc.makrobot.dsl
 
 import csc.markobot.MakroBot
 import csc.markobot.WeekDay.*
-import csc.markobot.dsl.в
-import csc.markobot.dsl.кроме
-import csc.markobot.dsl.повторять
-import csc.markobot.расписание
-import csc.markobot.dsl.сценарий
-import csc.markobot.сброситьРасписание
+import csc.markobot.dsl.*
 
 fun main() {
     val робот = MakroBot("Маша")
@@ -21,16 +16,20 @@ fun main() {
         }
 
         робот вперед 3                      // infix functions
-        робот воспроизвести "Калинка-Малинка"
+        робот.воспроизвести {
+            +"Во поле береза стояла"
+            +"Во поле кудрявая стояла"
+        }
         робот.развернуться()
         робот назад 3
 
         расписание {                        // context-based high level function with context-lambda
 
-            робот вперед 3                  // control methods availability with @DslMarker
+            //робот вперед 3                // control methods availability with @DslMarker
 
-            повторять(вт в 10, сб в 12)     // typealias, infix functions
+            повторять(пн в 10, вт в 12)     // typealias, infix functions, vararg
             кроме(13)
+            повторять(ср..пт в 11)
         }
 
     }.запуститьСейчас()
@@ -38,7 +37,6 @@ fun main() {
         .расписание {
             повторять(пт в 23)
         }
-}
 
-//chaining, invoke, properties
-//контроль доступности методов/свойств
+    val (name, speed) = робот               // destructuring declarations
+}

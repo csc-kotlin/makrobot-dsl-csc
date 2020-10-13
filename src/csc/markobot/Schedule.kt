@@ -2,7 +2,6 @@
 
 package csc.markobot
 
-import csc.markobot.dsl.MakroBotScenario
 import csc.markobot.dsl.MakroBotDsl
 
 enum class WeekDay {
@@ -23,14 +22,4 @@ class Schedule {
             }
         }
     }
-}
-
-fun MakroBotScenario.расписание(schedule: Schedule.() -> Unit): MakroBotScenario {
-    this.schedule = Schedule().apply(schedule)
-    return this
-}
-
-fun MakroBotScenario.сброситьРасписание(): MakroBotScenario {
-    this.schedule = null
-    return this
 }
