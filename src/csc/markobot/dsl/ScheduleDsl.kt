@@ -1,4 +1,4 @@
-@file:Suppress("EnumEntryName", "NonAsciiCharacters")
+@file:Suppress("EnumEntryName", "NonAsciiCharacters", "FunctionName")
 package csc.markobot.dsl
 
 import csc.markobot.Schedule
