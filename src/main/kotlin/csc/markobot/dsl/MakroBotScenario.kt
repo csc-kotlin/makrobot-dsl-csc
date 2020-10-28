@@ -2,10 +2,11 @@
 
 package csc.markobot.dsl
 
-import csc.markobot.MakroBot
-import csc.markobot.Schedule
+import csc.markobot.api.MakroBot
+import csc.markobot.api.Schedule
 
 @DslMarker
+@Target(AnnotationTarget.CLASS)
 annotation class MakroBotDsl
 
 @MakroBotDsl

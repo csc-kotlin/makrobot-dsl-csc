@@ -1,8 +1,8 @@
 @file:Suppress("EnumEntryName", "NonAsciiCharacters", "FunctionName")
 package csc.markobot.dsl
 
-import csc.markobot.Schedule
-import csc.markobot.WeekDay
+import csc.markobot.api.Schedule
+import csc.markobot.api.WeekDay
 
 fun MakroBotScenario.расписание(schedule: Schedule.() -> Unit): MakroBotScenario {
     this.schedule = Schedule().apply(schedule)

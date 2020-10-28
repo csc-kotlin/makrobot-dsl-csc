@@ -1,6 +1,6 @@
 @file:Suppress("EnumEntryName", "NonAsciiCharacters")
 
-package csc.markobot
+package csc.markobot.api
 
 import csc.markobot.dsl.MakroBotDsl
 

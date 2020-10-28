@@ -1,9 +1,9 @@
-package csc.markobot
+package csc.markobot.api
 
 import csc.markobot.dsl.MakroBotDsl
 
 @MakroBotDsl
-class MakroBot(val name: String) {
+class MakroBot(val name: String, val head: Head, val body: Body, val hands: Hands, val chassis: Chassis) {
 
     var speed: Int = 5
 
@@ -16,9 +16,4 @@ class MakroBot(val name: String) {
     fun turnAround() = println("turnAround")
 
     fun pronounce(source: String) = println("pronounce: \n$source")
-
-    fun recordAudio(durationSec: Int): Audio {
-        println("record audio for $durationSec sec")
-        return Audio()
-    }
 }
