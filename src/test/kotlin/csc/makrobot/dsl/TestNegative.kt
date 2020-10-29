@@ -2,8 +2,8 @@ package csc.makrobot.dsl
 
 import com.tschuchort.compiletesting.KotlinCompilation
 import com.tschuchort.compiletesting.SourceFile
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 
 class TestNegative {
 
@@ -118,6 +118,6 @@ class TestNegative {
             inheritClassPath = true
         }.compile()
 
-        Assert.assertEquals(KotlinCompilation.ExitCode.COMPILATION_ERROR, result.exitCode)
+        Assertions.assertEquals(KotlinCompilation.ExitCode.COMPILATION_ERROR, result.exitCode)
     }
 }

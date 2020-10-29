@@ -4,8 +4,8 @@ package csc.makrobot.dsl
 
 import csc.markobot.api.*
 import csc.markobot.dsl.*
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 
 class TestsPostitive {
 
@@ -98,7 +98,7 @@ class TestsPostitive {
             }
         }
 
-        Assert.assertEquals(Chassis.Wheel(2, 4), роботНаКолесах.chassis)
+        Assertions.assertEquals(Chassis.Wheel(2, 4), роботНаКолесах.chassis)
 
         val роботНаНогах = робот("Wall-E") {
             голова {
@@ -129,22 +129,22 @@ class TestsPostitive {
             шасси = ноги
         }
 
-        Assert.assertEquals(Chassis.Legs, роботНаНогах.chassis)
+        Assertions.assertEquals(Chassis.Legs, роботНаНогах.chassis)
     }
 
     private fun verify(робот: MakroBot) {
-        Assert.assertEquals("Wall-E", робот.name)
-        Assert.assertEquals(Plastik(2), робот.head.material)
-        Assert.assertArrayEquals(arrayOf(LampEye(10), LampEye(10), LedEye(3)), робот.head.eyes.toTypedArray())
-        Assert.assertEquals(Mouth(Speaker(3)), робот.head.mouth)
+        Assertions.assertEquals("Wall-E", робот.name)
+        Assertions.assertEquals(Plastik(2), робот.head.material)
+        Assertions.assertArrayEquals(arrayOf(LampEye(10), LampEye(10), LedEye(3)), робот.head.eyes.toTypedArray())
+        Assertions.assertEquals(Mouth(Speaker(3)), робот.head.mouth)
 
-        Assert.assertEquals(Metal(1), робот.body.material)
-        Assert.assertArrayEquals(arrayOf("I don't want to survive.", "I want live."), робот.body.strings.toTypedArray())
+        Assertions.assertEquals(Metal(1), робот.body.material)
+        Assertions.assertArrayEquals(arrayOf("I don't want to survive.", "I want live."), робот.body.strings.toTypedArray())
 
-        Assert.assertEquals(Plastik(3), робот.hands.material)
-        Assert.assertEquals(LoadClass.Light, робот.hands.minLoad)
-        Assert.assertEquals(LoadClass.Medium, робот.hands.maxLoad)
+        Assertions.assertEquals(Plastik(3), робот.hands.material)
+        Assertions.assertEquals(LoadClass.Light, робот.hands.minLoad)
+        Assertions.assertEquals(LoadClass.Medium, робот.hands.maxLoad)
 
-        Assert.assertEquals(Chassis.Caterpillar(10), робот.chassis)
+        Assertions.assertEquals(Chassis.Caterpillar(10), робот.chassis)
     }
 }

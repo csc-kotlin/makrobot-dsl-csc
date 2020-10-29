@@ -10,6 +10,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.0.3")
     testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.3.1")
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
