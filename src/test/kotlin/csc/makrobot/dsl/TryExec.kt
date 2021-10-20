@@ -8,7 +8,7 @@ import csc.markobot.dsl.*
 
 fun main() {
 
-    val воллиБезDSL = MakroBot("Wall-E",
+    val волли = MakroBot("Wall-E",
         Head(Plastik(2), listOf(LampEye(10), LampEye(10)), Mouth(Speaker(3))),
         Body(Metal(1), listOf("I don't want to survive.", "I want live.")),
         Hands(Plastik(3), LoadClass.Light, LoadClass.Medium),
@@ -60,22 +60,22 @@ fun main() {
     }*/
 
     сценарий {
-        воллиБезDSL {                             // invoke operator overload
+        волли {                             // invoke operator overload
             speed = 2                       // initialization DSL
             power = 3
         }
 
-        воллиБезDSL вперед 3                      // infix functions
-        воллиБезDSL.воспроизвести {
+        волли вперед 3                      // infix functions
+        волли.воспроизвести {
             +"Во поле береза стояла"
             +"Во поле кудрявая стояла"
         }
-        воллиБезDSL.развернуться()
-        воллиБезDSL назад 3
+        волли.развернуться()
+        волли назад 3
 
         расписание {                        // context-based high level function with context-lambda
 
-            //робот вперед 3                // control methods availability with @DslMarker
+            // волли вперед 3                // control methods availability with @DslMarker
 
             повторять(пн в 10, вт в 12)     // typealias, infix functions, vararg
             кроме(13)
@@ -88,5 +88,5 @@ fun main() {
             повторять(пт в 23)
         }
 
-    val (name, speed) = воллиБезDSL               // destructuring declarations
+    val (name, speed) = волли               // destructuring declarations
 }
