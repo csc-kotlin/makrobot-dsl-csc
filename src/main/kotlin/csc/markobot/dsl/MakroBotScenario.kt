@@ -37,7 +37,7 @@ class MakroBotScenario {
         val text: String get() = strings.joinToString(separator = "\n")
     }
 
-    fun MakroBot.воспроизвести(text: PronounceBlock.()->Unit) {
+    infix fun MakroBot.воспроизвести(text: PronounceBlock.()->Unit) {
 
         val pronounceBlock = PronounceBlock().apply(text)
 
@@ -46,7 +46,7 @@ class MakroBotScenario {
 
     operator fun MakroBot.invoke(settings: MakroBot.() -> Unit) = this.settings()
 
-    // no way to restrict it's call inside scenario
+    // no way to restrict its call inside scenario :(
     fun запуститьСейчас(): MakroBotScenario {
         actions.forEach { it() }
 
