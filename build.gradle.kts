@@ -2,17 +2,17 @@ group = "csc.makrobot"
 version = "1.0-SNAPSHOT"
 
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "1.6.10"
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.0.3")
-    testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.3.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation("com.github.tschuchortdev:kotlin-compile-testing:1.4.6")
 }
 
 tasks.withType<Test>().configureEach {

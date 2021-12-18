@@ -7,7 +7,7 @@ import csc.markobot.dsl.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class TestsPostitive {
+class TestsPositive {
 
     @Test
     fun testNonDSL() {
